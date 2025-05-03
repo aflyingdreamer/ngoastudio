@@ -195,7 +195,7 @@ body {
     flex-direction: column;
     position: relative;
     height: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0;
 }
 
@@ -260,7 +260,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding: 32px 48px;
+    padding: 8px 48px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -486,7 +486,7 @@ body {
     }
     
     .main-nav {
-        padding: 32px 24px;
+        padding: 8px 24px;
     }
 
     .about-text {
@@ -503,7 +503,7 @@ body {
 /* Mobile Navigation */
 @media (max-width: 768px) {
     .main-nav {
-        padding: 24px 16px;
+        padding: 8px 16px;
     }
 
     .brand-name {
@@ -568,7 +568,7 @@ body {
 
 @media (max-width: 480px) {
     .main-nav {
-        padding: 16px;
+        padding: 8px;
     }
 
     .brand-name {
@@ -632,6 +632,13 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .loading-content {
@@ -651,19 +658,52 @@ body {
     height: auto;
 }
 
-.loading-progress {
-    width: 300px;
-    height: 2px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 1px;
-    overflow: hidden;
+/* Remove ink drop styles */
+.ink-drop {
+    display: none !important;
 }
 
-.progress-bar {
-    width: 0%;
+/* Splash Gradient Animation */
+.splash-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    background: black;
-    transition: width 0.3s ease;
+    width: 20px;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%);
+    opacity: 1;
+    animation: splashMove 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes splashMove {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        left: calc(100% - 20px);
+        opacity: 0;
+    }
+}
+
+/* Gentle shake animation for logo */
+@keyframes logoShake {
+    0% { transform: translateX(0); }
+    15% { transform: translateX(-4px) rotate(-2deg); }
+    30% { transform: translateX(4px) rotate(2deg); }
+    45% { transform: translateX(-3px) rotate(-1.5deg); }
+    60% { transform: translateX(3px) rotate(1.5deg); }
+    75% { transform: translateX(-2px) rotate(-1deg); }
+    90% { transform: translateX(2px) rotate(1deg); }
+    100% { transform: translateX(0); }
+}
+
+.loading-logo.shake {
+    animation: logoShake 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Animation Classes */
@@ -947,4 +987,17 @@ button:hover {
 
 button:hover .arrow {
     transform: translateY(-2px);
+}
+
+#mainContent {
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#mainContent.fade-in {
+    opacity: 1;
+}
+
+.cursor.hidden {
+    display: none;
 } 

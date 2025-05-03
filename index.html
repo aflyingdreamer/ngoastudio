@@ -49,19 +49,17 @@
     </style>
 </head>
 <body>
+    <canvas id="canvas"></canvas>
+    <div class="cursor hidden"></div>
     <div class="loading-screen" id="loadingScreen">
       <div class="loading-content">
-        <div class="loading-logo">
+        <div class="loading-logo" style="position:relative;">
           <img src="assets/logo.png" alt="Logo" />
-        </div>
-        <div class="loading-progress">
-          <div class="progress-bar" id="progressBar"></div>
+          <div class="splash-gradient"></div>
         </div>
       </div>
     </div>
-    <div class="container" id="mainContent" style="display:none;">
-        <canvas id="canvas"></canvas>
-        <div class="cursor"></div>
+    <div class="container" id="mainContent">
         <div class="ink"></div>
         <!-- Hero Section -->
         <div class="hero">
@@ -276,6 +274,10 @@
             mouseY = e.clientY;
             cursor.style.left = mouseX + 'px';
             cursor.style.top = mouseY + 'px';
+            // Show cursor on first movement
+            if (cursor.classList.contains('hidden')) {
+                cursor.classList.remove('hidden');
+            }
         });
 
         init();
@@ -322,8 +324,20 @@
         window.addEventListener('resize', updateParallax);
 
         window.addEventListener('load', function() {
-          document.getElementById('loadingScreen').style.display = 'none';
-          document.getElementById('mainContent').style.display = '';
+          setTimeout(function() {
+            var loadingScreen = document.getElementById('loadingScreen');
+            var mainContent = document.getElementById('mainContent');
+            var loadingLogo = document.querySelector('.loading-logo');
+            // Trigger shake
+            loadingLogo.classList.add('shake');
+            setTimeout(function() {
+              loadingScreen.classList.add('fade-out');
+              setTimeout(function() {
+                loadingScreen.style.display = 'none';
+                mainContent.classList.add('fade-in');
+              }, 1000); // match the CSS transition duration
+            }, 700); // match the shake duration
+          }, 3000); // 3 seconds
         });
     </script>
 </body>
