@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGOASTUDIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            cursor: none;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+            z-index: 9999;
+        }
+
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .main-nav.hide {
+            transform: translateY(-100%);
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="cursor"></div>
+    <div class="ink"></div>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="assets/herobg.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay">
+                <video class="hero-video-container" autoplay muted loop playsinline>
+                    <source src="assets/video-bg.mp4" type="video/mp4">
+                </video>
+                <div class="hero-footer">
+                    <h1 class="hero-text">Stories. Inked. Intently.</h1>
+                    <div class="hero-info">
+                        <div>593 thuy khue, hanoi</div>
+                        <div>reservation is open</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="section-content">
+                <div class="section-header">
+                    <div class="dot"></div>
+                    <div class="section-title">about</div>
+                </div>
+                <div class="section-line"></div>
+                <h2 class="about-text">
+                    Hi, I'm Long — founder of Do Tattoo and Ngoa Studio, where stories are not just told, but quietly worn.
+                </h2>
+            </div>
+        </div>
+
+        <!-- Journey Section -->
+        <div class="journey-section">
+            <div class="journey-image-container">
+                <div class="journey-image"></div>
+            </div>
+            <div class="journey-content">
+                <div class="journey-info">
+                    <div class="section-header">
+                        <div class="dot"></div>
+                        <div class="section-title">my journey</div>
+                    </div>
+                    <div class="section-line"></div>
+                    <h2 class="journey-text">
+                        My approach is unique — every tattoo is not just ink on skin, but a living, evolving piece of art that reflects his client's individuality.
+                    </h2>
+                </div>
+                <div class="journey-actions">
+                    <div class="journey-description">
+                        Dedicated to perfection in every detail, I view each tattoo as a personal journey. My commitment to excellence goes beyond technique, focusing on creating meaningful pieces that are as enduring as they are visually striking.
+                    </div>
+                    <button class="journey-btn">
+                        My journey
+                        <span class="arrow">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.5 14.25L14.25 4.49997M14.25 4.49997V13.86M14.25 4.49997H4.89" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-left">
+                <img src="assets/logo.png" alt="Logo" class="logo">
+                <h2 class="brand-name">Ngoastudio.</h2>
+            </div>
+            <div class="nav-right">
+                <div class="nav-column">
+                    <div class="nav-line"></div>
+                    <h3><a href="#about">About</a></h3>
+                    <h3><a href="#artists">Artists</a></h3>
+                    <h3><a href="#" class="coming-soon">journey (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Course (soon)</a></h3>
+                </div>
+                <div class="nav-column">
+                    <div class="nav-line"></div>
+                    <h3><a href="#" class="coming-soon">FAQs (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Aftercare (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">blog (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Process (soon)</a></h3>
+                </div>
+                <button class="reservation-btn">
+                    Reservation
+                    <span class="arrow">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 14.25L14.25 4.49997M14.25 4.49997V13.86M14.25 4.49997H4.89" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <button class="hamburger-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12C21 12.1989 20.921 12.3897 20.7803 12.5303C20.6397 12.671 20.4489 12.75 20.25 12.75H3.75C3.55109 12.75 3.36032 12.671 3.21967 12.5303C3.07902 12.3897 3 12.1989 3 12C3 11.8011 3.07902 11.6103 3.21967 11.4697C3.36032 11.329 3.55109 11.25 3.75 11.25H20.25C20.4489 11.25 20.6397 11.329 20.7803 11.4697C20.921 11.6103 21 11.8011 21 12ZM3.75 6.75H20.25C20.4489 6.75 20.6397 6.67098 20.7803 6.53033C20.921 6.38968 21 6.19891 21 6C21 5.80109 20.921 5.61032 20.7803 5.46967C20.6397 5.32902 20.4489 5.25 20.25 5.25H3.75C3.55109 5.25 3.36032 5.32902 3.21967 5.46967C3.07902 5.61032 3 5.80109 3 6C3 6.19891 3.07902 6.38968 3.21967 6.53033C3.36032 6.67098 3.55109 6.75 3.75 6.75ZM20.25 17.25H3.75C3.55109 17.25 3.36032 17.329 3.21967 17.4697C3.07902 17.6103 3 17.8011 3 18C3 18.1989 3.07902 18.3897 3.21967 18.5303C3.36032 18.671 3.55109 18.75 3.75 18.75H20.25C20.4489 18.75 20.6397 18.671 20.7803 18.5303C20.921 18.3897 21 18.1989 21 18C21 17.8011 20.921 17.6103 20.7803 17.4697C20.6397 17.329 20.4489 17.25 20.25 17.25Z" fill="white"/>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-links">
+                <h3><a href="#about">About</a></h3>
+                <h3><a href="#artists">Artists</a></h3>
+                <h3><a href="#" class="coming-soon">journey (soon)</a></h3>
+                <h3><a href="#" class="coming-soon">Course (soon)</a></h3>
+                <h3><a href="#" class="coming-soon">FAQs (soon)</a></h3>
+                <h3><a href="#" class="coming-soon">Aftercare (soon)</a></h3>
+                <h3><a href="#" class="coming-soon">blog (soon)</a></h3>
+                <h3><a href="#" class="coming-soon">Process (soon)</a></h3>
+            </div>
+            <div class="mobile-menu-footer">
+                <button class="reservation-btn">
+                    Reservation
+                    <span class="arrow">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 14.25L14.25 4.49997M14.25 4.49997V13.86M14.25 4.49997H4.89" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <button class="hamburger-btn close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const cursor = document.querySelector('.cursor');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        let mouseX = width / 2;
+        let mouseY = height / 2;
+
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = mouseX;
+                this.y = mouseY;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+                this.color = 'white';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Particle system
+        let particles = [];
+        let particleCount = 10;
+
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Update and draw particles
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Remove particles that are too small
+                if (particles[i].size <= 0.2) {
+                    particles.splice(i, 1);
+                    i--;
+                }
+            }
+
+            // Add new particles
+            if (particles.length < particleCount) {
+                particles.push(new Particle());
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Handle mouse movement
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        init();
+        animate();
+
+        // Header scroll behavior
+        let lastScrollTop = 0;
+        const header = document.querySelector('.main-nav');
+        const scrollThreshold = 50; // Minimum scroll amount to trigger hide/show
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.classList.add('hide');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('hide');
+                }
+                lastScrollTop = scrollTop;
+            }
+        });
+
+        // Parallax effect for journey section
+        const journeyImage = document.querySelector('.journey-image');
+        const journeySection = document.querySelector('.journey-section');
+
+        function updateParallax() {
+            const rect = journeySection.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const sectionTop = rect.top + scrollTop;
+            const sectionHeight = rect.height;
+            
+            // Calculate how far we've scrolled into the section (0 to 1)
+            const scrollProgress = Math.max(0, Math.min(1, (scrollTop - sectionTop) / sectionHeight));
+            
+            // Move the background image based on scroll progress
+            journeyImage.style.transform = `translateY(${scrollProgress * 20}%)`;
+        }
+
+        window.addEventListener('scroll', updateParallax);
+        window.addEventListener('resize', updateParallax);
+    </script>
+</body>
+</html> 

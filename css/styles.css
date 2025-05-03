@@ -1,0 +1,950 @@
+/* Import Neue Montreal font */
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('../assets/NeueMontreal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Neue Montreal', 'Montserrat', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #000;
+    background: white;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-width: 1600px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.hero-video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(2.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.5s ease;
+}
+
+.hero-image {
+    width: 902px;
+    height: 507px;
+    padding: 240px;
+    object-fit: cover;
+}
+
+.hero-footer {
+    width: 100%;
+    padding: 32px 48px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    mix-blend-mode: lighten;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.hero-text, .hero-info div {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero-info {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 48px;
+    width: 100%;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    width: 100%;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.section-line {
+    width: 100%;
+    height: 1px;
+    outline: 4px black solid;
+    outline-offset: -3px;
+}
+
+.about-text {
+    padding: 100px 15% 100px 0;    
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 80px;
+}
+
+/* Journey Section */
+.journey-section {
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.journey-image-container {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.journey-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/journeyimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    transform: translateY(0);
+    will-change: transform;
+}
+
+.journey-content {
+    width: 50%;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    max-width: 800px;
+    margin: 0;
+}
+
+.journey-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: calc(100% - 200px);
+    overflow-y: auto;
+    padding-right: 16px;
+    width: 100%;
+}
+
+.journey-actions {
+    position: absolute;
+    bottom: 48px;
+    left: 48px;
+    right: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: white;
+    padding-top: 24px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0;
+}
+
+.journey-text {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 60px;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.journey-description {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.journey-btn {
+    padding: 20px 40px;
+    background: black;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Navigation */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1000;
+    mix-blend-mode: difference;
+    background: transparent;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav-left.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logo {
+    width: 45px;
+    height: 64px;
+    mix-blend-mode: normal;
+}
+
+.brand-name {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav-right {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav-right.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-column {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-line {
+    width: 100%;
+    height: 4px;
+    outline: 2px white solid;
+    outline-offset: -2px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.nav-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-column a {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.nav-column a.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-column a:hover {
+    opacity: 0.7;
+}
+
+.coming-soon {
+    color: rgba(255, 255, 255, 0.60);
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.reservation-btn {
+    padding: 20px 40px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    mix-blend-mode: normal;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.reservation-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reservation-btn:hover {
+    transform: translateY(-2px);
+}
+
+.arrow {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.arrow::after {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1680px) {
+    .container {
+        width: 100vw;
+    }
+    
+    .about-text {
+        padding-left: 100px;
+        font-size: 48px;
+        line-height: 60px;
+    }
+    
+    .journey-text {
+        font-size: 36px;
+        line-height: 48px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .journey-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .journey-image-container {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .journey-content {
+        width: 100%;
+        padding: 32px;
+        max-width: 100%;
+    }
+
+    .journey-actions {
+        position: relative;
+        bottom: auto;
+        left: 0;
+        right: 0;
+        padding: 32px 0;
+        max-width: 100%;
+    }
+
+    .journey-info {
+        height: auto;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+
+    .journey-text {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .about-text {
+        padding-left: 0;
+    }
+
+    .nav-right {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-right {
+        display: none;
+    }
+    
+    .hero-image {
+        width: 100%;
+        height: auto;
+        padding: 120px;
+    }
+    
+    .journey-section,
+    .about-section {
+        padding: 0 24px;
+    }
+    
+    .main-nav {
+        padding: 32px 24px;
+    }
+
+    .about-text {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .journey-text {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .main-nav {
+        padding: 24px 16px;
+    }
+
+    .brand-name {
+        font-size: 36px;
+    }
+
+    .hero-overlay {
+        padding: 0 16px;
+    }
+
+    .hero-text, .hero-info div {
+        font-size: 16px;
+    }
+
+    .about-text {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .journey-section {
+        height: auto;
+    }
+
+    .journey-image-container {
+        height: 40vh;
+    }
+
+    .journey-content {
+        padding: 24px;
+    }
+
+    .journey-actions {
+        padding: 24px 0;
+    }
+
+    .journey-text {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .journey-description {
+        font-size: 16px;
+    }
+
+    .journey-btn {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+
+    .about-section {
+        padding: 100px 12px;
+    }
+    .section-content {
+        gap: 16px;
+    }
+    .about-text {
+        padding: 96px 0;
+        font-size: 22px;
+        line-height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-nav {
+        padding: 16px;
+    }
+
+    .brand-name {
+        font-size: 24px;
+    }
+
+    .logo {
+        width: 32px;
+        height: 45px;
+    }
+
+    .about-text {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .journey-text {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .hero-image {
+        padding: 60px;
+    }
+
+    .hero-footer {
+        padding: 16px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .journey-image-container {
+        height: 30vh;
+    }
+
+    .journey-content {
+        padding: 16px;
+    }
+
+    .journey-actions {
+        padding: 16px 0;
+    }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.loading-logo {
+    width: 200px;
+    height: auto;
+}
+
+.loading-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.loading-progress {
+    width: 300px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: black;
+    transition: width 0.3s ease;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Menu */
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1000;
+    transform: translateX(100vw);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+    display: flex;
+}
+
+.mobile-menu-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 60px;
+}
+
+.mobile-menu-links a {
+    color: black;
+    font-size: 32px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mobile-menu-links a.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-links .coming-soon {
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.mobile-menu-footer {
+    width: 100%;
+    padding: 12px 40px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mobile-menu-footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-footer .reservation-btn {
+    background: transparent;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.mobile-menu-footer .reservation-btn .arrow {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.mobile-menu-footer .reservation-btn .arrow::after {
+    content: '';
+    width: 9.75px;
+    height: 9.75px;
+    position: absolute;
+    left: 4.50px;
+    top: 4.50px;
+    outline: 2px white solid;
+    outline-offset: -1px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+.close-btn svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.close-btn::after {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .nav-right {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+}
+
+
+/* Mobile drawer reservation button overrides */
+.mobile-menu .reservation-btn {
+    background: black;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    mix-blend-mode: normal;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    justify-content: center;
+    padding: 20px 40px;
+}
+
+.mobile-menu .reservation-btn .arrow svg {
+    stroke: white;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu .reservation-btn {
+        padding: 16px 32px;
+        font-size: 16px;
+    }
+}
+
+/* Add smooth transitions for interactive elements */
+.nav-column a,
+.reservation-btn,
+.journey-btn,
+.section-title,
+.about-text,
+.journey-text,
+.journey-description,
+.hero-text,
+.hero-info div {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.nav-column a:hover {
+    opacity: 0.7;
+}
+
+.reservation-btn:hover,
+.journey-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Section transitions */
+.section-content {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.section-header {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Hero section transitions */
+.hero-overlay {
+    transition: background-color 0.5s ease;
+}
+
+.hero-footer {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Journey section transitions */
+.journey-content {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.journey-actions {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Button transitions */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Arrow transitions */
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+button:hover .arrow {
+    transform: translateY(-2px);
+} 

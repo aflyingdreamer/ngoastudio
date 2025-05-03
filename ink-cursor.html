@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ink Cursor Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            cursor: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+            z-index: 9999;
+        }
+
+        .ink {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            mix-blend-mode: difference;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 9998;
+        }
+
+        /* Add hover effects for interactive elements */
+        a, button, input, textarea, select {
+            position: relative;
+        }
+
+        a:hover, button:hover, input:hover, textarea:hover, select:hover {
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="ink"></div>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        const ink = document.querySelector('.ink');
+
+        // Track mouse position
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+
+            // Create ink effect
+            ink.style.left = mouseX + 'px';
+            ink.style.top = mouseY + 'px';
+            ink.style.opacity = '1';
+            ink.style.transform = 'translate(-50%, -50%) scale(1)';
+
+            // Reset ink effect
+            setTimeout(() => {
+                ink.style.opacity = '0';
+                ink.style.transform = 'translate(-50%, -50%) scale(0)';
+            }, 300);
+        });
+
+        // Handle cursor visibility when leaving the window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+        });
+    </script>
+</body>
+</html> 
