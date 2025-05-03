@@ -49,10 +49,20 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div class="cursor"></div>
-    <div class="ink"></div>
-    <div class="container">
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-logo">
+          <img src="assets/logo.png" alt="Logo" />
+        </div>
+        <div class="loading-progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="mainContent" style="display:none;">
+        <canvas id="canvas"></canvas>
+        <div class="cursor"></div>
+        <div class="ink"></div>
         <!-- Hero Section -->
         <div class="hero">
             <video class="hero-video" autoplay muted loop playsinline>
@@ -310,6 +320,11 @@
 
         window.addEventListener('scroll', updateParallax);
         window.addEventListener('resize', updateParallax);
+
+        window.addEventListener('load', function() {
+          document.getElementById('loadingScreen').style.display = 'none';
+          document.getElementById('mainContent').style.display = '';
+        });
     </script>
 </body>
 </html> 
