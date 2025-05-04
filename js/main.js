@@ -45,70 +45,86 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu when clicking on a link
     const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
     mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (!link.classList.contains('coming-soon')) {
-                toggleMenu();
-            }
-        });
+        if (link) {
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('coming-soon')) {
+                    toggleMenu();
+                }
+            });
+        }
     });
 
     // Header scroll effect
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a:not(.coming-soon)').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const section = document.querySelector(this.getAttribute('href'));
-            if (section) {
-                section.scrollIntoView({
-                    behavior: 'smooth'
-                });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
+    }
+
+    // Smooth scrolling for navigation links
+    const smoothScrollLinks = document.querySelectorAll('nav a:not(.coming-soon)');
+    smoothScrollLinks.forEach(anchor => {
+        if (anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                if (section) {
+                    section.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
     });
 
     // Add active class to current section in viewport
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 60) {
-                current = section.getAttribute('id');
-            }
-        });
+    if (sections.length > 0 && navLinks.length > 0) {
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                }
+            });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
+            navLinks.forEach(link => {
+                if (link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                }
+            });
         });
-    });
-
-    const nav = document.querySelector('.main-nav');
-    const hero = document.querySelector('.hero');
-    
-    function updateNavStyle() {
-        const heroBottom = hero.getBoundingClientRect().bottom;
-        if (heroBottom <= 0) {
-            // Removed background and backdrop-filter
-        } else {
-            // Removed background and backdrop-filter
-        }
     }
 
-    window.addEventListener('scroll', updateNavStyle);
-    updateNavStyle(); // Initial check
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        function updateNavStyle() {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                const heroBottom = hero.getBoundingClientRect().bottom;
+                if (heroBottom <= 0) {
+                    // Removed background and backdrop-filter
+                } else {
+                    // Removed background and backdrop-filter
+                }
+            }
+        }
+
+        window.addEventListener('scroll', updateNavStyle);
+        updateNavStyle(); // Initial check
+    }
 }); 
