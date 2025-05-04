@@ -46,6 +46,218 @@
             pointer-events: none;
             z-index: 9998;
         }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .book-experience-section {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 24px 120px;
+            position: relative;
+            background: white;
+            border-top: 1px solid rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+            min-height: 180px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .book-experience-text {
+            color: #1E1E1E;
+            font-size: 7vw;
+            font-family: 'Neue Montreal', 'Montserrat', Arial, sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: 0.01em;
+            flex: 1;
+            z-index: 1;
+            user-select: none;
+            transition: color 0.3s;
+        }
+        .book-experience-arrow {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+        .book-experience-arrow-inner {
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            transition: border 0.3s, background 0.3s;
+        }
+        .book-experience-arrow svg {
+            width: 84px;
+            height: 84px;
+            display: block;
+            transition: stroke 0.3s, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .book-experience-arrow svg path {
+            stroke: #1E1E1E;
+            transition: stroke 0.3s;
+        }
+        .book-experience-section:hover {
+            background: #1E1E1E;
+        }
+        .book-experience-section:hover .book-experience-text {
+            color: #fff;
+        }
+        .book-experience-section:hover .book-experience-arrow-inner {
+            border: 1px solid #fff;
+            background: #1E1E1E;
+        }
+        .book-experience-section:hover .book-experience-arrow svg {
+            transform: rotate(90deg);
+        }
+        .book-experience-section:hover .book-experience-arrow svg path {
+            stroke: #fff;
+        }
+        @media (max-width: 1200px) {
+            .book-experience-section {
+                padding: 24px 80px;
+                min-height: 160px;
+            }
+            .book-experience-arrow {
+                width: 140px;
+            }
+            .book-experience-arrow-inner {
+                width: 80px;
+                height: 80px;
+            }
+            .book-experience-arrow svg {
+                width: 64px;
+                height: 64px;
+            }
+        }
+        @media (max-width: 900px) {
+            .book-experience-section {
+                padding: 24px 48px;
+                min-height: 140px;
+            }
+            .book-experience-text {
+                font-size: 9vw;
+            }
+            .book-experience-arrow {
+                width: 120px;
+            }
+            .book-experience-arrow-inner {
+                width: 70px;
+                height: 70px;
+            }
+            .book-experience-arrow svg {
+                width: 54px;
+                height: 54px;
+            }
+        }
+        @media (max-width: 600px) {
+            .book-experience-section {
+                padding: 16px 24px;
+                min-height: 100px;
+            }
+            .book-experience-text {
+                font-size: 11vw;
+            }
+            .book-experience-arrow {
+                width: 80px;
+            }
+            .book-experience-arrow-inner {
+                width: 50px;
+                height: 50px;
+            }
+            .book-experience-arrow svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        @media (max-width: 400px) {
+            .book-experience-section {
+                padding: 12px 16px;
+                min-height: 80px;
+            }
+            .book-experience-text {
+                font-size: 13vw;
+            }
+            .book-experience-arrow {
+                width: 60px;
+            }
+            .book-experience-arrow-inner {
+                width: 40px;
+                height: 40px;
+            }
+            .book-experience-arrow svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .reservation-btn {
+            padding: 20px 40px;
+            background: white;
+            color: black;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            mix-blend-mode: normal;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s, background 0.3s, color 0.3s;
+        }
+        .reservation-btn .arrow {
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reservation-btn .arrow svg {
+            width: 100%;
+            height: 100%;
+            transition: stroke 0.3s;
+        }
+        .reservation-btn .arrow svg path {
+            stroke: #000;
+            transition: stroke 0.3s;
+        }
+        .reservation-btn:hover {
+            background: #1E1E1E;
+            color: #fff;
+        }
+        .reservation-btn:hover .arrow {
+            transform: rotate(90deg);
+        }
+        .reservation-btn:hover .arrow svg path {
+            stroke: #fff;
+        }
     </style>
 </head>
 <body>
@@ -88,11 +300,49 @@
                 </div>
                 <div class="section-line"></div>
                 <div class="about-text">
-                    Hi, I'm Long — founder of Do Tattoo and Ngoa Studio, where stories are not just told, but quietly worn.
+                    <div class="text-content active">Hi, I'm Long — founder of Do Tattoo and Ngoa Studio, where stories are not just told, but quietly worn.</div>
+                    <div class="text-content">My approach is unique — every tattoo is not just ink on skin, but a living, evolving piece of art that reflects his client's individuality.</div>
+                    <div class="text-content">Dedicated to perfection in every detail, I view each tattoo as a personal journey. My commitment to excellence goes beyond technique, focusing on creating meaningful pieces that are as enduring as they are visually striking.</div>
                 </div>
             </div>
             <div class="about-image-container">
                 <img src="assets/journeyimage.jpg" alt="About Ngoa Studio" class="about-image">
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section" id="gallery">
+            <div class="gallery-content">
+                <div class="gallery-header">
+                    <div class="section-header">
+                        <div class="dot"></div>
+                        <div class="section-title">Ink, Memory, and Meaning.</div>
+                    </div>
+                    <div class="gallery-line"></div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="assets/01.png" alt="Gallery Image 1"></div>
+                    <div class="gallery-item"><img src="assets/02.png" alt="Gallery Image 2"></div>
+                    <div class="gallery-item"><img src="assets/03.png" alt="Gallery Image 3"></div>
+                    <div class="gallery-item"><img src="assets/04.png" alt="Gallery Image 4"></div>
+                    <div class="gallery-item"><img src="assets/05.png" alt="Gallery Image 5"></div>
+                    <div class="gallery-item"><img src="assets/06.png" alt="Gallery Image 6"></div>
+                    <div class="gallery-item"><img src="assets/07.png" alt="Gallery Image 7"></div>
+                    <div class="gallery-item"><img src="assets/08.png" alt="Gallery Image 8"></div>
+                </div>
+            </div>
+        </div>
+        <!-- End Gallery Section -->
+
+        <!-- Book Experience Section -->
+        <div class="book-experience-section" onclick="window.open('reservation.html', '_blank')">
+            <div class="book-experience-text">BOOK&nbsp;&nbsp;&nbsp;EXPERIENCE</div>
+            <div class="book-experience-arrow">
+                <div class="book-experience-arrow-inner">
+                    <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 63L63 21M63 21V59.64M63 21H24.36" stroke="#1E1E1E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
             </div>
         </div>
 
@@ -257,14 +507,10 @@
         // Header scroll behavior
         let lastScrollTop = 0;
         const header = document.querySelector('.main-nav');
-        const scrollThreshold = 10; // Reduced threshold for more responsive behavior
-        let scrollTimeout;
+        const scrollThreshold = 5; // Reduced threshold for more responsive behavior
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Clear any existing timeout
-            clearTimeout(scrollTimeout);
             
             if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
                 if (scrollTop > lastScrollTop && scrollTop > 100) {
@@ -276,13 +522,6 @@
                 }
                 lastScrollTop = scrollTop;
             }
-            
-            // Add a small delay before hiding the header when scrolling stops
-            scrollTimeout = setTimeout(() => {
-                if (scrollTop > 100) {
-                    header.classList.add('hide');
-                }
-            }, 150);
         });
 
         window.addEventListener('load', function() {
