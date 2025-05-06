@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Elements found:', { aboutSection, aboutImage, aboutImageContainer, aboutContent, aboutHeader, aboutLine, aboutText });
 
-    let lastScrollTop = 0;
     let currentScrollPosition = 0;
     let isMobile = window.innerWidth <= 768;
     let currentTextIndex = 0;

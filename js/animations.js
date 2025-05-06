@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.2, // Trigger when 20% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Adjust trigger point slightly up
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
     });
 
     // Observe all animated elements
@@ -103,17 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function animateMobileMenu() {
-        // Reset any existing animations first
         resetMobileMenuAnimations();
-
-        // Animate each link with a delay
         mobileLinks.forEach((link, index) => {
             setTimeout(() => {
                 link.classList.add('visible');
-            }, index * 100); // 100ms delay between each link
+            }, index * 100);
         });
-
-        // Animate footer after all links
         setTimeout(() => {
             mobileFooter.classList.add('visible');
         }, mobileLinks.length * 100);
@@ -126,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburgerBtn) {
         hamburgerBtn.addEventListener('click', () => {
             mobileMenu.classList.add('active');
-            // Wait for the menu to be visible before starting animations
             setTimeout(animateMobileMenu, 50);
         });
     }
@@ -155,5 +149,5 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScrollY = currentScrollY;
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 }); 

@@ -54,17 +54,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Header scroll effect
-    const header = document.querySelector('header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+    // Header scroll behavior
+    const header = document.querySelector('.main-nav');
+    let lastScrollTop = 0;
+    const scrollThreshold = 5;
+
+    function handleHeaderScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.classList.add('hide');
             } else {
-                header.classList.remove('scrolled');
+                // Scrolling up
+                header.classList.remove('hide');
             }
-        });
+            lastScrollTop = scrollTop;
+        }
     }
+
+    // Add scroll event listener for header
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
 
     // Smooth scrolling for navigation links
     const smoothScrollLinks = document.querySelectorAll('nav a:not(.coming-soon)');
