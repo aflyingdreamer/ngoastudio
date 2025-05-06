@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- JMH Typewriter font import -->
+    <link href="https://fonts.cdnfonts.com/css/jmh-typewriter" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         * {
             cursor: none;
@@ -32,7 +36,7 @@
             left: 0;
             width: 100%;
             transition: transform 0.3s ease;
-            z-index: 1000;
+            z-index: 3000 !important;
         }
 
         .main-nav.hide {
@@ -63,7 +67,7 @@
         .book-experience-section {
             width: 100%;
             box-sizing: border-box;
-            padding: 24px 120px;
+            padding: 24px 48px;
             position: relative;
             background: white;
             border-top: 1px solid rgba(0,0,0,0.3);
@@ -258,6 +262,138 @@
         .reservation-btn:hover .arrow svg path {
             stroke: #fff;
         }
+
+        /* Use JMH Typewriter for all headings */
+        h1, h2, h3, .section-title, .brand-name, .hero-text {
+            font-family: 'JMH Typewriter', 'Neue Montreal', 'Montserrat', Arial, sans-serif !important;
+        }
+
+        /* Use JMH Typewriter for all text */
+        body, html, * {
+            font-family: 'JMH Typewriter', 'Neue Montreal', 'Montserrat', Arial, sans-serif !important;
+        }
+
+        .gallery-section {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .gallery-swiper {
+            width: 100vw;
+            max-width: 1400px;
+            height: 500px;
+            margin: 0 auto;
+            position: relative;
+            overflow: visible;
+            padding-left: 120px;
+        }
+
+        .swiper-slide {
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            width: 350px !important;
+            height: 450px !important;
+            transition: box-shadow 0.3s;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            backdrop-filter: blur(10px);
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            max-width: 40px;
+            max-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.4);
+            transition-duration: 0.3s;
+        }
+        .swiper-button-next svg,
+        .swiper-button-prev svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .swiper-button-next svg path, .swiper-button-prev svg path {
+            fill: #fff;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            display: none !important;
+        }
+        .swiper-wrapper {
+            transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1) !important;
+        }
+        .swiper-button-disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 1200px) {
+            .gallery-swiper {
+                height: 380px;
+                max-width: 90vw;
+            }
+            .swiper-slide {
+                width: 260px !important;
+                height: 320px !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-swiper {
+                height: 220px;
+                max-width: 98vw;
+            }
+            .swiper-slide {
+                width: 120px !important;
+                height: 180px !important;
+                border-radius: 10px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 32px;
+                height: 32px;
+            }
+            .swiper-button-next:after, .swiper-button-prev:after {
+                font-size: 16px;
+            }
+        }
+        .gallery-header {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+        .gallery-line {
+            width: 100%;
+            height: 4px;
+            background: black;
+            margin-left: 48px;
+            margin-right: 48px;
+        }
+        @media (max-width: 768px) {
+            .gallery-header {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            .gallery-line {
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -271,6 +407,42 @@
       </div>
     </div>
     <div class="container" id="mainContent">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-left">
+                <img src="assets/logo.png" alt="Logo" class="logo">
+                <h2 class="brand-name">Ngoastudio.</h2>
+            </div>
+            <div class="nav-right">
+                <div class="nav-column">
+                    <div class="nav-line"></div>
+                    <h3><a href="#about">About</a></h3>
+                    <h3><a href="#artists">Artists</a></h3>
+                    <h3><a href="#" class="coming-soon">journey (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Course (soon)</a></h3>
+                </div>
+                <div class="nav-column">
+                    <div class="nav-line"></div>
+                    <h3><a href="#" class="coming-soon">FAQs (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Aftercare (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">blog (soon)</a></h3>
+                    <h3><a href="#" class="coming-soon">Process (soon)</a></h3>
+                </div>
+                <button class="reservation-btn">
+                    Reservation
+                    <span class="arrow">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.5 14.25L14.25 4.49997M14.25 4.49997V13.86M14.25 4.49997H4.89" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <button class="hamburger-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12C21 12.1989 20.921 12.3897 20.7803 12.5303C20.6397 12.671 20.4489 12.75 20.25 12.75H3.75C3.55109 12.75 3.36032 12.671 3.21967 12.5303C3.07902 12.3897 3 12.1989 3 12C3 11.8011 3.07902 11.6103 3.21967 11.4697C3.36032 11.329 3.55109 11.25 3.75 11.25H20.25C20.4489 11.25 20.6397 11.329 20.7803 11.4697C20.921 11.6103 21 11.8011 21 12ZM3.75 6.75H20.25C20.4489 6.75 20.6397 6.67098 20.7803 6.53033C20.921 6.38968 21 6.19891 21 6C21 5.80109 20.921 5.61032 20.7803 5.46967C20.6397 5.32902 20.4489 5.25 20.25 5.25H3.75C3.55109 5.25 3.36032 5.32902 3.21967 5.46967C3.07902 5.61032 3 5.80109 3 6C3 6.19891 3.07902 6.38968 3.21967 6.53033C3.36032 6.67098 3.55109 6.75 3.75 6.75ZM20.25 17.25H3.75C3.55109 17.25 3.36032 17.329 3.21967 17.4697C3.07902 17.6103 3 17.8011 3 18C3 18.1989 3.07902 18.3897 3.21967 18.5303C3.36032 18.671 3.55109 18.75 3.75 18.75H20.25C20.4489 18.75 20.6397 18.671 20.7803 18.5303C20.921 18.3897 21 18.1989 21 18C21 17.8011 20.921 17.6103 20.7803 17.4697C20.6397 17.329 20.4489 17.25 20.25 17.25Z" fill="white"/>
+                </svg>
+            </button>
+        </nav>
         <div class="ink"></div>
         <!-- Hero Section -->
         <div class="hero">
@@ -310,25 +482,54 @@
             </div>
         </div>
 
+        <!-- Reel Section -->
+        <section class="reel-section">
+            <div class="reel-header">
+                <span class="reel-title">From Do to Ngoa</span>
+            </div>
+            <div class="reel-content">
+                <span class="reel-left">DoTattoo</span>
+                <img class="reel-image" src="assets/reel-logo.png" alt="Reel Preview">
+                <span class="reel-right">Ngoa</span>
+            </div>
+            <div class="reel-footer">
+                <div class="reel-description">
+                    Ngoa was born not as a separate path, but as an evolution — a quieter chapter, rooted in the same hands that shaped Đô Tattoo Studio. Created by Long, founder of both spaces, Ngoa carries the same spirit of precision and presence, but moves deeper into silence, stillness, and soul.<br>
+                    Where Đô marked stories on skin, Ngoa listens for the space between words — continuing the same devotion, in a softer voice.
+                </div>
+            </div>
+        </section>
+
         <!-- Gallery Section -->
         <div class="gallery-section" id="gallery">
-            <div class="gallery-content">
-                <div class="gallery-header">
-                    <div class="section-header">
-                        <div class="dot"></div>
-                        <div class="section-title">Ink, Memory, and Meaning.</div>
-                    </div>
-                    <div class="gallery-line"></div>
+            <div class="gallery-header">
+                <div class="section-header">
+                    <div class="dot"></div>
+                    <div class="section-title">Ink, Memory, and Meaning.</div>
                 </div>
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="assets/01.png" alt="Gallery Image 1"></div>
-                    <div class="gallery-item"><img src="assets/02.png" alt="Gallery Image 2"></div>
-                    <div class="gallery-item"><img src="assets/03.png" alt="Gallery Image 3"></div>
-                    <div class="gallery-item"><img src="assets/04.png" alt="Gallery Image 4"></div>
-                    <div class="gallery-item"><img src="assets/05.png" alt="Gallery Image 5"></div>
-                    <div class="gallery-item"><img src="assets/06.png" alt="Gallery Image 6"></div>
-                    <div class="gallery-item"><img src="assets/07.png" alt="Gallery Image 7"></div>
-                    <div class="gallery-item"><img src="assets/08.png" alt="Gallery Image 8"></div>
+                <div class="gallery-line"></div>
+            </div>
+            <div class="swiper gallery-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/01.png" alt="Gallery Image 1"></div>
+                    <div class="swiper-slide"><img src="assets/02.png" alt="Gallery Image 2"></div>
+                    <div class="swiper-slide"><img src="assets/03.png" alt="Gallery Image 3"></div>
+                    <div class="swiper-slide"><img src="assets/04.png" alt="Gallery Image 4"></div>
+                    <div class="swiper-slide"><img src="assets/05.png" alt="Gallery Image 5"></div>
+                    <div class="swiper-slide"><img src="assets/06.png" alt="Gallery Image 6"></div>
+                    <div class="swiper-slide"><img src="assets/07.png" alt="Gallery Image 7"></div>
+                    <div class="swiper-slide"><img src="assets/08.png" alt="Gallery Image 8"></div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-prev">
+                  <svg viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.8494 19.546C15.9191 19.6156 15.9743 19.6984 16.0121 19.7894C16.0498 19.8805 16.0692 19.978 16.0692 20.0766C16.0692 20.1751 16.0498 20.2727 16.0121 20.3638C15.9743 20.4548 15.9191 20.5375 15.8494 20.6072C15.7797 20.6769 15.697 20.7322 15.6059 20.7699C15.5149 20.8076 15.4173 20.827 15.3188 20.827C15.2202 20.827 15.1226 20.8076 15.0316 20.7699C14.9405 20.7322 14.8578 20.6769 14.7881 20.6072L7.28814 13.1072C7.21841 13.0376 7.16309 12.9548 7.12535 12.8638C7.0876 12.7727 7.06818 12.6752 7.06818 12.5766C7.06818 12.478 7.0876 12.3804 7.12535 12.2894C7.16309 12.1983 7.21841 12.1156 7.28814 12.046L14.7881 4.54596C14.9289 4.40523 15.1197 4.32617 15.3188 4.32617C15.5178 4.32617 15.7087 4.40523 15.8494 4.54596C15.9901 4.68669 16.0692 4.87757 16.0692 5.07659C16.0692 5.27561 15.9901 5.46648 15.8494 5.60721L8.87908 12.5766L15.8494 19.546Z" fill="white"/>
+                  </svg>
+                </div>
+                <div class="swiper-button-next">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.0306 12.5306L9.53062 20.0306C9.46093 20.1002 9.37821 20.1555 9.28716 20.1932C9.19612 20.2309 9.09854 20.2503 8.99999 20.2503C8.90144 20.2503 8.80386 20.2309 8.71282 20.1932C8.62177 20.1555 8.53905 20.1002 8.46936 20.0306C8.39968 19.9609 8.34441 19.8781 8.30669 19.7871C8.26898 19.6961 8.24957 19.5985 8.24957 19.4999C8.24957 19.4014 8.26898 19.3038 8.30669 19.2128C8.34441 19.1217 8.39968 19.039 8.46936 18.9693L15.4397 11.9999L8.46936 5.03055C8.32863 4.88982 8.24957 4.69895 8.24957 4.49993C8.24957 4.30091 8.32863 4.11003 8.46936 3.9693C8.61009 3.82857 8.80097 3.74951 8.99999 3.74951C9.19901 3.74951 9.38988 3.82857 9.53062 3.9693L17.0306 11.4693C17.1003 11.539 17.1557 11.6217 17.1934 11.7127C17.2312 11.8038 17.2506 11.9014 17.2506 11.9999C17.2506 12.0985 17.2312 12.1961 17.1934 12.2871C17.1557 12.3782 17.1003 12.4609 17.0306 12.5306Z" fill="white"/>
+                  </svg>
                 </div>
             </div>
         </div>
@@ -345,43 +546,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Navigation -->
-        <nav class="main-nav">
-            <div class="nav-left">
-                <img src="assets/logo.png" alt="Logo" class="logo">
-                <h2 class="brand-name">Ngoastudio.</h2>
-            </div>
-            <div class="nav-right">
-                <div class="nav-column">
-                    <div class="nav-line"></div>
-                    <h3><a href="#about">About</a></h3>
-                    <h3><a href="#artists">Artists</a></h3>
-                    <h3><a href="#" class="coming-soon">journey (soon)</a></h3>
-                    <h3><a href="#" class="coming-soon">Course (soon)</a></h3>
-                </div>
-                <div class="nav-column">
-                    <div class="nav-line"></div>
-                    <h3><a href="#" class="coming-soon">FAQs (soon)</a></h3>
-                    <h3><a href="#" class="coming-soon">Aftercare (soon)</a></h3>
-                    <h3><a href="#" class="coming-soon">blog (soon)</a></h3>
-                    <h3><a href="#" class="coming-soon">Process (soon)</a></h3>
-                </div>
-                <button class="reservation-btn">
-                    Reservation
-                    <span class="arrow">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.5 14.25L14.25 4.49997M14.25 4.49997V13.86M14.25 4.49997H4.89" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </button>
-            </div>
-            <button class="hamburger-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21 12C21 12.1989 20.921 12.3897 20.7803 12.5303C20.6397 12.671 20.4489 12.75 20.25 12.75H3.75C3.55109 12.75 3.36032 12.671 3.21967 12.5303C3.07902 12.3897 3 12.1989 3 12C3 11.8011 3.07902 11.6103 3.21967 11.4697C3.36032 11.329 3.55109 11.25 3.75 11.25H20.25C20.4489 11.25 20.6397 11.329 20.7803 11.4697C20.921 11.6103 21 11.8011 21 12ZM3.75 6.75H20.25C20.4489 6.75 20.6397 6.67098 20.7803 6.53033C20.921 6.38968 21 6.19891 21 6C21 5.80109 20.921 5.61032 20.7803 5.46967C20.6397 5.32902 20.4489 5.25 20.25 5.25H3.75C3.55109 5.25 3.36032 5.32902 3.21967 5.46967C3.07902 5.61032 3 5.80109 3 6C3 6.19891 3.07902 6.38968 3.21967 6.53033C3.36032 6.67098 3.55109 6.75 3.75 6.75ZM20.25 17.25H3.75C3.55109 17.25 3.36032 17.329 3.21967 17.4697C3.07902 17.6103 3 17.8011 3 18C3 18.1989 3.07902 18.3897 3.21967 18.5303C3.36032 18.671 3.55109 18.75 3.75 18.75H20.25C20.4489 18.75 20.6397 18.671 20.7803 18.5303C20.921 18.3897 21 18.1989 21 18C21 17.8011 20.921 17.6103 20.7803 17.4697C20.6397 17.329 20.4489 17.25 20.25 17.25Z" fill="white"/>
-                </svg>
-            </button>
-        </nav>
 
         <!-- Mobile Menu -->
         <div class="mobile-menu">
@@ -415,6 +579,7 @@
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/scroll-animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
@@ -539,6 +704,31 @@
               }, 1000); // match the CSS transition duration
             }, 700); // match the shake duration
           }, 3000); // 3 seconds
+        });
+
+        // Only Swiper initialization for gallery
+        document.addEventListener('DOMContentLoaded', function() {
+          new Swiper('.gallery-swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: false,
+            slidesPerView: 'auto',
+            spaceBetween: 40,
+            loop: false,
+            watchOverflow: true,
+            speed: 800,
+            coverflowEffect: {
+              rotate: 40,
+              stretch: 0,
+              depth: 300,
+              modifier: 1,
+              slideShadows: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }
+          });
         });
     </script>
 </body>

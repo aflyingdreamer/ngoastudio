@@ -127,4 +127,33 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', updateNavStyle);
         updateNavStyle(); // Initial check
     }
+
+    // Reel section scroll animation (precise overlap, max 40% of image width)
+    (function() {
+        const reelSection = document.querySelector('.reel-section');
+        const reelContent = document.querySelector('.reel-content');
+        const left = document.querySelector('.reel-left');
+        const right = document.querySelector('.reel-right');
+        if (!reelSection || !reelContent || !left || !right) return;
+
+        function clamp(val, min, max) {
+            return Math.max(min, Math.min(max, val));
+        }
+
+        function onScroll() {
+            const rect = reelSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            const sectionHeight = rect.height;
+            // Progress: 0 when centered, 1 when scrolled past the section
+            const scrollY = clamp((windowHeight/2 - rect.top) / (sectionHeight/2), 0, 1);
+            // Max translation: 40% of the reel-content width (px)
+            const maxTranslate = 0.4 * reelContent.offsetWidth;
+            left.style.transform = `translate(-50%, -50%) translateX(-${scrollY * maxTranslate}px)`;
+            right.style.transform = `translate(-50%, -50%) translateX(${scrollY * maxTranslate}px)`;
+        }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', onScroll);
+        onScroll();
+    })();
 }); 
